@@ -2,7 +2,7 @@ FROM alpine:edge
 
 MAINTAINER Felix Buenemann <felix.buenemann@gmail.com>
 
-ARG VIPS_VERSION=8.4.4
+ARG VIPS_VERSION=8.4.5
 RUN wget -O- http://www.vips.ecs.soton.ac.uk/supported/current/vips-${VIPS_VERSION}.tar.gz | tar xzC /tmp \
     && apk update \
     && apk upgrade \
