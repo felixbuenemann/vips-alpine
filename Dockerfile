@@ -1,4 +1,4 @@
-FROM alpine:edge
+FROM alpine:3.6
 
 MAINTAINER Felix Buenemann <felix.buenemann@gmail.com>
 
