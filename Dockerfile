@@ -2,8 +2,8 @@ FROM alpine:3.7
 
 MAINTAINER Felix Buenemann <felix.buenemann@gmail.com>
 
-ARG VIPS_VERSION=8.4.5
-RUN wget -O- http://www.vips.ecs.soton.ac.uk/supported/current/vips-${VIPS_VERSION}.tar.gz | tar xzC /tmp \
+ARG VIPS_VERSION=8.6.3
+RUN wget -O- https://github.com/jcupitt/libvips/releases/download/v${VIPS_VERSION}/vips-${VIPS_VERSION}.tar.gz | tar xzC /tmp \
     && apk update \
     && apk upgrade \
     && apk add \
@@ -17,10 +17,10 @@ RUN wget -O- http://www.vips.ecs.soton.ac.uk/supported/current/vips-${VIPS_VERSI
     py-gobject3-dev \
     && cd /tmp/vips-${VIPS_VERSION} \
     && ./configure --prefix=/usr \
-                   --without-python \
                    --disable-static \
                    --disable-dependency-tracking \
                    --enable-silent-rules \
+                   --enable-pyvips8 \
     && make -s install-strip \
     && cd $OLDPWD \
     && rm -rf /tmp/vips-${VIPS_VERSION} \
