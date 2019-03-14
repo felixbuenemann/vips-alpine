@@ -3,7 +3,8 @@ FROM alpine:3.7
 MAINTAINER Felix Buenemann <felix.buenemann@gmail.com>
 
 ARG VIPS_VERSION=8.6.4
-RUN wget -O- https://github.com/jcupitt/libvips/releases/download/v${VIPS_VERSION}/vips-${VIPS_VERSION}.tar.gz | tar xzC /tmp \
+RUN set -x -o pipefail \
+    && wget -O- https://github.com/libvips/libvips/releases/download/v${VIPS_VERSION}/vips-${VIPS_VERSION}.tar.gz | tar xzC /tmp \
     && apk update \
     && apk upgrade \
     && apk add \
