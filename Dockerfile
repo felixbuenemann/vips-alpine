@@ -1,8 +1,8 @@
-FROM alpine:3.7
+FROM alpine:3.12
 
 MAINTAINER Felix Buenemann <felix.buenemann@gmail.com>
 
-ARG VIPS_VERSION=8.6.4
+ARG VIPS_VERSION=8.9.2
 RUN set -x -o pipefail \
     && wget -O- https://github.com/libvips/libvips/releases/download/v${VIPS_VERSION}/vips-${VIPS_VERSION}.tar.gz | tar xzC /tmp \
     && apk update \
@@ -21,7 +21,6 @@ RUN set -x -o pipefail \
                    --disable-static \
                    --disable-dependency-tracking \
                    --enable-silent-rules \
-                   --enable-pyvips8 \
     && make -s install-strip \
     && cd $OLDPWD \
     && rm -rf /tmp/vips-${VIPS_VERSION} \
