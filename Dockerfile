@@ -1,4 +1,4 @@
-FROM alpine:3.12
+FROM alpine:3.15
 
 MAINTAINER Felix Buenemann <felix.buenemann@gmail.com>
 
