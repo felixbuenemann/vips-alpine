@@ -2,7 +2,7 @@ FROM alpine:3.12
 
 MAINTAINER Felix Buenemann <felix.buenemann@gmail.com>
 
-ARG VIPS_VERSION=8.11.2
+ARG VIPS_VERSION=8.11.4
 RUN set -x -o pipefail \
     && wget -O- https://github.com/libvips/libvips/releases/download/v${VIPS_VERSION}/vips-${VIPS_VERSION}.tar.gz | tar xzC /tmp \
     && apk update \
